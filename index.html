@@ -2,34 +2,80 @@
 <html lang="cs">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Pitomio Okamůra</title>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+
   <style media="screen">
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden;
     }
     body {
-      background-image: url('01-okamura.jpg');
-      background-size: contain;
-      background-position: center;
+      background-color: #333;
     }
-    marquee {
-      width: 100%;
+    .carousel {
       height: 100%;
+      position: relative;
     }
-    h1 {
-      font-size: 3em;
-      color: DeepPink;
-      text-shadow: 0.05em 0 Black, -0.05em 0 Black;
-      text-transform: uppercase;
+    .carousel-cell {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
+      .carousel-cell > * {
+        width: 100%;
+      }
   </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109138698-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-109138698-1');
+  </script>
 </head>
 <body>
-  <marquee direction="down" behavior="alternate">
-    <marquee behavior="alternate"><h1>Webové stránky jsou ve výstavbě</h1></marquee>
-  </marquee>
+  <div class="carousel">
+    <div class="carousel-cell" id="01">
+      <img data-flickity-lazyload="01-okamura.jpg">
+    </div>
+    <div class="carousel-cell" id="02">
+      <img data-flickity-lazyload="02-okamura.jpg">
+    </div>
+    <div class="carousel-cell" id="03">
+      <img data-flickity-lazyload="03-okamura.jpg">
+    </div>
+    <div class="carousel-cell" id="04">
+      <img data-flickity-lazyload="04-okamura.png">
+    </div>
+    <div class="carousel-cell" id="05">
+      <img data-flickity-lazyload="05-okamura.png">
+    </div>
+    <div class="carousel-cell" id="06">
+      <img data-flickity-lazyload="06-okamura.png">
+    </div>
+    <div class="carousel-cell" id="07">
+      <img data-flickity-lazyload="07-okamura.png">
+    </div>
+  </div>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script>
+  var flkty = new Flickity('.carousel', {
+    setGallerySize: false,
+    lazyLoad: true,
+    autoPlay: false,
+    wrapAround: true
+  });
+  </script>
 </body>
 </html>
