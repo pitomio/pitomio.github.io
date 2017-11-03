@@ -26,12 +26,15 @@
     }
     .carousel-cell {
       width: 100%;
+      height: 100%;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
     }
       .carousel-cell > * {
         width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
   </style>
 
@@ -68,11 +71,14 @@
     <div class="carousel-cell" id="07">
       <img data-flickity-lazyload="07-okamura.png">
     </div>
+    <div class="carousel-cell" id="08">
+      <img data-flickity-lazyload="08-okamura.jpg">
+    </div>
   </div>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script>
   var flkty = new Flickity('.carousel', {
-    setGallerySize: false,
+    setGallerySize: true,
     lazyLoad: true,
     autoPlay: true,
     wrapAround: true
