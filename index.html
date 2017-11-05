@@ -73,6 +73,11 @@
   <form class="controls">
     Pitomio Okamůra
     <br>
+    <label for="control-music">
+      <input type="checkbox" id="control-music">
+      &hellip;koktá jak Eva a Vašek mektá
+    </label>
+    <br>
     <label for="control-eyes">
       <input type="checkbox" checked class="control" data-object="eyes" id="control-eyes">
       &hellip;blbě čumí
@@ -183,7 +188,11 @@
     var javascriptNode;
 
     setupAudioNodes();
-    loadSound("hymna.mp3");
+
+    document.getElementById('control-music').addEventListener('click', function() {
+      loadSound("hymna.mp3");
+    })
+
     function setupAudioNodes() {
       javascriptNode = context.createScriptProcessor(2048, 1, 1);
       javascriptNode.connect(context.destination);
