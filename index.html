@@ -5,37 +5,54 @@
   <title>Pitomio Okamůra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:image" content="http://pitom.io/01-okamura.jpg" />
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&amp;subset=latin-ext" rel="stylesheet">
   <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 
-  <style media="screen">
+  <style>
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
     }
     body {
-      background-color: #333;
-    }
-    .carousel {
-      height: 100%;
       position: relative;
+      background-image: url('japan.jpg');
+      background-size: cover;
+
+      font-family: sans-serif;
+      font-size: 1.25em;
+      line-height: 1.25em;
+      font-family: 'Patrick Hand', cursive;
+      -webkit-font-smoothing: antialiased;
+    	-moz-osx-font-smoothing: grayscale;
     }
-    .carousel-cell {
-      width: 100%;
-      height: 100%;
+    body > svg {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      left: 0;
+      bottom: 0;
+      max-height: 90%;
     }
-      .carousel-cell > * {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
+
+    .controls {
+      position: absolute;
+      z-index: 2;
+      right: 2%;
+      top: 2%;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5em;
+      color: white;
+      border-radius: 0.5em;
+    }
+
+    .pupil {
+    	transform-origin: bottom;
+    }
+
+    .d-none {
+      display: none;
+    }
   </style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -49,40 +66,172 @@
   </script>
 </head>
 <body>
-  <div class="carousel">
-    <div class="carousel-cell" id="01">
-      <img data-flickity-lazyload="01-okamura.jpg">
-    </div>
-    <div class="carousel-cell" id="02">
-      <img data-flickity-lazyload="02-okamura.jpg">
-    </div>
-    <div class="carousel-cell" id="03">
-      <img data-flickity-lazyload="03-okamura.jpg">
-    </div>
-    <div class="carousel-cell" id="04">
-      <img data-flickity-lazyload="04-okamura.png">
-    </div>
-    <div class="carousel-cell" id="05">
-      <img data-flickity-lazyload="05-okamura.png">
-    </div>
-    <div class="carousel-cell" id="06">
-      <img data-flickity-lazyload="06-okamura.png">
-    </div>
-    <div class="carousel-cell" id="07">
-      <img data-flickity-lazyload="07-okamura.png">
-    </div>
-    <div class="carousel-cell" id="08">
-      <img data-flickity-lazyload="08-okamura.jpg">
-    </div>
-  </div>
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <form class="controls">
+    Pitomio Okamůra
+    <br>
+    <label>
+      <input type="checkbox" checked class="control" data-object="eyes">
+      &hellip;blbě čumí
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" class="control" data-object="shit">
+      &hellip;mele hovna
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" class="control" data-object="migrant">
+      &hellip;je napaden ilegálním migrantem ze Sýrie
+    </label>
+  </form>
+
+  <svg preserveAspectRatio="xMinYMin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 662 710">
+    <defs>
+      <mask id="pitomioMask">
+        <image width="662" height="710" xlink:href="pitomio-mask.png"></image>
+      </mask>
+
+      <mask id="pitomioMaskMouth">
+        <image width="662" height="710" xlink:href="pitomio-mask-mouth.png"></image>
+      </mask>
+    </defs>
+    <rect x="175" y="350" width="200" height="200" fill="#d20000"></rect>
+
+    <image class="shit d-none" x="215" y="395" width="45" height="45" xlink:href="pile-of-poo.png"></image>
+    <image class="shit d-none" x="260" y="395" width="45" height="45" xlink:href="pile-of-poo.png"></image>
+    <image class="shit d-none" x="305" y="395" width="45" height="45" xlink:href="pile-of-poo.png"></image>
+    <image class="shit d-none" x="235" y="415" width="45" height="45" xlink:href="pile-of-poo.png"></image>
+    <image class="shit d-none" x="280" y="415" width="45" height="45" xlink:href="pile-of-poo.png"></image>
+    <image class="shit d-none" x="257" y="435" width="45" height="45" xlink:href="pile-of-poo.png"></image>
+
+    <image mask="url(#pitomioMask)" width="662" height="710" xlink:href="pitomio.jpg"></image>
+
+    <image id="mouth" mask="url(#pitomioMaskMouth)" width="662" height="710" xlink:href="pitomio.jpg"></image>
+
+    <circle class="eyes" cx="220" cy="275" r="30" fill="white" stroke="black"></circle>
+    <circle class="eyes pupil" cx="220" cy="265" r="10" fill="black"></circle>
+
+    <circle class="eyes" cx="345" cy="275" r="30" fill="white" stroke="black"></circle>
+    <circle class="eyes pupil" cx="345" cy="265" r="10" fill="black"></circle>
+
+    <image class="migrant d-none" x="450" y="165" transform="rotate(10)" xlink:href="migrant.png"></image>
+  </svg>
+
   <script>
-  var flkty = new Flickity('.carousel', {
-    setGallerySize: true,
-    lazyLoad: true,
-    autoPlay: true,
-    wrapAround: true
-  });
+    document.querySelectorAll('.control').forEach(function(element) {
+      element.addEventListener('change', function() {
+        var objects = document.querySelectorAll('.'+this.dataset.object);
+        if (this.checked) {
+          objects.forEach(function(object) {
+            object.classList.remove('d-none');
+          });
+        }
+        else {
+          objects.forEach(function(object) {
+            object.classList.add('d-none');
+          });
+        }
+      });
+    });
+
+    var pupils = document.querySelectorAll(".pupil");
+
+    for (var i = 0; i < pupils.length; i++) {
+        var offset = pupils[i].getBoundingClientRect();
+        pupils[i]['centerX'] = offset.left + offset.width/2,
+        pupils[i]['centerY'] = offset.bottom;
+    }
+
+    function goGoogly(e) {
+    	var pointerEvent = e;
+        if (e.targetTouches && e.targetTouches[0]) {
+        	e.preventDefault();
+            pointerEvent = e.targetTouches[0];
+            mouseX = pointerEvent.pageX;
+            mouseY = pointerEvent.pageY;
+        } else {
+            mouseX = e.clientX + window.pageXOffset,
+            mouseY = e.clientY + window.pageYOffset;
+        }
+    for (var i = 0; i < pupils.length; i++) {
+    	    pupils[i]['radians'] = Math.atan2(mouseX - pupils[i]['centerX'], mouseY - pupils[i]['centerY']),
+    	    pupils[i]['degree'] = (pupils[i]['radians'] * (180 / Math.PI) * -1);
+    	    pupils[i].style.transform = 'rotate('+ (pupils[i]['degree'] + 180) + 'deg)';
+    	}
+    }
+
+    window.addEventListener('mousemove', goGoogly);
+    window.addEventListener('touchstart', goGoogly);
+    window.addEventListener('touchmove', goGoogly);
+
+    var mouth = document.getElementById('mouth');
+    if (! window.AudioContext) {
+      if (! window.webkitAudioContext) {
+        alert('no audiocontext found');
+      }
+      window.AudioContext = window.webkitAudioContext;
+    }
+    var context = new AudioContext();
+    var audioBuffer;
+    var sourceNode;
+    var splitter;
+    var analyser;
+    var javascriptNode;
+
+    setupAudioNodes();
+    loadSound("hymna.mp3");
+    function setupAudioNodes() {
+      javascriptNode = context.createScriptProcessor(2048, 1, 1);
+      javascriptNode.connect(context.destination);
+
+      analyser = context.createAnalyser();
+      analyser.smoothingTimeConstant = 0.3;
+      analyser.fftSize = 1024;
+
+      sourceNode = context.createBufferSource();
+      splitter = context.createChannelSplitter(1);
+      sourceNode.connect(splitter);
+      splitter.connect(analyser,0,0);
+      analyser.connect(javascriptNode);
+      sourceNode.connect(context.destination);
+    }
+    function loadSound(url) {
+      var request = new XMLHttpRequest();
+      request.open('GET', url, true);
+      request.responseType = 'arraybuffer';
+      request.onload = function() {
+        context.decodeAudioData(request.response, function(buffer) {
+          playSound(buffer);
+        }, onError);
+      }
+      request.send();
+    }
+    function playSound(buffer) {
+      sourceNode.volume = .1;
+      sourceNode.loop = true;
+      sourceNode.buffer = buffer;
+      sourceNode.start(0);
+    }
+    function onError(e) {
+      console.log(e);
+    }
+
+    javascriptNode.onaudioprocess = function() {
+      var array =  new Uint8Array(analyser.frequencyBinCount);
+      analyser.getByteFrequencyData(array);
+      var average = getAverageVolume(array);
+      mouth.style.transform = 'translateY('+Math.max(0, average-15)*0.075+'%)'
+    }
+    function getAverageVolume(array) {
+      var values = 0;
+      var average;
+      var length = array.length;
+      for (var i = 0; i < length; i++) {
+        values += array[i];
+      }
+      average = values / length;
+      return average;
+    }
   </script>
 </body>
 </html>
