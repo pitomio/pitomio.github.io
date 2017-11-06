@@ -46,14 +46,6 @@
       border-radius: 0.5em;
     }
 
-    .pupil {
-    	transform-origin: bottom;
-    	-webkit-transform-origin: bottom;
-    	-moz-transform-origin: bottom;
-    	-ms-transform-origin: bottom;
-    	-o-transform-origin: bottom;
-    }
-
     .d-none {
       display: none;
     }
@@ -123,7 +115,7 @@
     <circle class="eyes" cx="345" cy="275" r="30" fill="white" stroke="black"></circle>
     <circle class="eyes pupil" cx="345" cy="265" r="10" fill="black"></circle>
 
-    <image class="migrant d-none" x="450" y="165" transform="rotate(10)" xlink:href="migrant.png"></image>
+    <image class="migrant d-none" x="450" y="165" width="300" height="323" transform="rotate(10)" xlink:href="migrant.png"></image>
   </svg>
 
   <script>
@@ -165,7 +157,13 @@
     for (var i = 0; i < pupils.length; i++) {
     	    pupils[i]['radians'] = Math.atan2(mouseX - pupils[i]['centerX'], mouseY - pupils[i]['centerY']),
     	    pupils[i]['degree'] = (pupils[i]['radians'] * (180 / Math.PI) * -1);
-    	    pupils[i].style.transform = 'rotate('+ (pupils[i]['degree'] + 180) + 'deg)';
+    	    pupils[i].transform = 'rotate('+ (pupils[i]['degree'] + 180) + ' 0 0)';
+          if (i == 1) {
+            pupils[i].setAttribute('transform', 'rotate('+ (pupils[i]['degree'] + 180) + ' 345 275)');
+          }
+          else {
+            pupils[i].setAttribute('transform', 'rotate('+ (pupils[i]['degree'] + 180) + ' 220 275)');
+          }
     	}
     }
 
